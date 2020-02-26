@@ -137,7 +137,6 @@ make_bios_writable(void)
         }
         if (vendor == PCI_VENDOR_ID_INTEL
             && device == PCI_DEVICE_ID_INTEL_Q35_MCH) {
-            make_bios_writable_intel(bdf, Q35_HOST_BRIDGE_PAM0);
             code_mutable_preinit();
             ShadowBDF = bdf;
             return;
