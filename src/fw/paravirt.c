@@ -25,6 +25,7 @@
 #include "util.h" // pci_setup
 #include "x86.h" // cpuid
 #include "xen.h" // xen_biostable_setup
+#include "mythril.h" // xen_biostable_setup
 #include "stacks.h" // yield
 
 // Amount of continuous ram under 4Gig
@@ -180,6 +181,17 @@ qemu_platform_setup(void)
         mptable_setup();
     }
     smbios_setup();
+
+    if (runningOnMythril()) {
+        dprintf(
+            3,
+            "=====================================\n" \
+            "          Mythril Hypervisor\n" \
+            "=====================================\n" \
+        );
+        mythril_biostable_setup();
+        return;
+    }
 
     if (CONFIG_FW_ROMFILE_LOAD) {
         int loader_err;

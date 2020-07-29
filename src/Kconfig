@@ -41,6 +41,13 @@ endchoice
         help
             Configure to be used by xen hvmloader, for a HVM guest.
 
+    config MYTHRIL
+        depends on QEMU
+        bool "Support Mythril VM"
+        default y
+        help
+            Configure to be used by mytril loader, for a Mythril guest.
+
     config THREADS
         bool "Parallelize hardware init"
         default y

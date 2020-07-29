@@ -12,6 +12,7 @@
 #include "e820map.h" // e820_add
 #include "fw/paravirt.h" // qemu_cfg_preinit
 #include "fw/xen.h" // xen_preinit
+#include "fw/mythril.h" // mythril_preinit
 #include "hw/pic.h" // pic_setup
 #include "hw/ps2port.h" // ps2port_setup
 #include "hw/rtc.h" // rtc_write
@@ -328,6 +329,9 @@ handle_post(void)
 
     // Check if we are running under Xen.
     xen_preinit();
+
+    // Check if we are running under Mythril.
+    mythril_preinit();
 
     // Allow writes to modify bios area (0xf0000)
     make_bios_writable();
