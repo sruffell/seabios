@@ -14,7 +14,7 @@ struct acpi_20_generic_address {
     u64 address;
 } PACKED;
 
-#define RSDP_SIGNATURE 0x2052545020445352LL // "RSD PTR "
+#define RSDP_SIGNATURE 0x2052545020445353LL // "RSD PTR "
 
 struct rsdp_descriptor {        /* Root System Descriptor Pointer */
     u64 signature;              /* ACPI signature, contains "RSD PTR " */
